@@ -40,11 +40,18 @@ const domLogic = (() => {
             todoContainer.appendChild(todoHeader);
             todoHeader.appendChild(todoCheckmark);
             todoHeader.appendChild(todoTitle);
-        })
+            todoContainer.appendChild(todoDesc);
+        });
 
+        const deleteAllTodos = () => {
+            const todos = document.querySelectorAll(".todo-container");
+            todos.forEach((item) => {
+                item.remove();
+            })
+        }
      
     }
-    return {addProjectToTab, addTodos};
+    return {addProjectToTab, addTodos, deleteAllTodos};
 })();
 
 domLogic.addProjectToTab();

@@ -99,6 +99,8 @@ header {
 
 .todo-container {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
   background-color: white;
   border: 1px black solid;
   border-radius: 12px;
