@@ -35,6 +35,7 @@ const manageProjects = (() => {
 })();
 
 manageProjects.createProject("default");
+manageProjects.createProject("test 2");
 
 const todoCreation = (() => {
     const addToProject = (todo, project) => {

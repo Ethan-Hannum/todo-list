@@ -5,11 +5,18 @@ const tabContainer = document.querySelector("#tab-container");
 const mainContainer = document.querySelector("#main-container");
 
 const domLogic = (() => {
+    const swapProject = (key) => {
+        deleteAllTodos();
+        addTodos(key);
+    }
+
     const addProjectToTab = () => {
         const projectArr = manageProjects.checkProjects();
         projectArr.forEach((item) => {
+            const index = projectArr.indexOf(item);
             const tab = document.createElement("div");
             tab.classList.add("tab");
+            tab.addEventListener("click", () => swapProject(index));
             tabContainer.appendChild(tab);
 
             const tabTitle = document.createElement("p");
@@ -18,10 +25,10 @@ const domLogic = (() => {
         }) 
     }
 
-    const addTodos = () => {
+    const addTodos = (key) => {
         const projectArr = manageProjects.checkProjects();
         console.log(projectArr);
-        const projectTodoList = projectArr[0].todoList;
+        const projectTodoList = projectArr[key].todoList;
         console.log(projectTodoList);
         projectTodoList.forEach((todoItem) => {
             const todoContainer = document.createElement("div");
@@ -42,17 +49,17 @@ const domLogic = (() => {
             todoHeader.appendChild(todoTitle);
             todoContainer.appendChild(todoDesc);
         });
-
-        const deleteAllTodos = () => {
-            const todos = document.querySelectorAll(".todo-container");
-            todos.forEach((item) => {
-                item.remove();
-            })
-        }
      
+    }
+
+    const deleteAllTodos = () => {
+        const todos = document.querySelectorAll(".todo-container");
+        todos.forEach((item) => {
+            item.remove();
+        })
     }
     return {addProjectToTab, addTodos, deleteAllTodos};
 })();
 
 domLogic.addProjectToTab();
-domLogic.addTodos();
+domLogic.addTodos(0);
