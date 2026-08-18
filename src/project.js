@@ -44,7 +44,7 @@ const todoCreation = (() => {
     function createTodo() {
         const projectArr = manageProjects.checkProjects();
 
-        const todoTitle = "test title";
+        const todoTitle = "a really really long title so I can test what happens when the title has a lot of text in it, time to see what happens if I were to add even more text";
         const todoDescription = "test desc";
         const todoDuedate = "test due date";
         const todoPriority = "test priority";

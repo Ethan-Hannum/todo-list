@@ -25,13 +25,21 @@ const domLogic = (() => {
         console.log(projectTodoList);
         projectTodoList.forEach((todoItem) => {
             const todoContainer = document.createElement("div");
+            const todoHeader = document.createElement("div");
+            const todoCheckmark = document.createElement("input");
             const todoTitle = document.createElement("p");
+            const todoDesc = document.createElement("p");
             todoContainer.classList.add("todo-container");
+            todoHeader.classList.add("todo-header");
+            todoCheckmark.setAttribute("type", "checkbox");
             todoTitle.classList.add("todo-title");
             todoTitle.textContent = todoItem.title;
+            todoDesc.textContent = todoItem.description;
             
             mainContainer.appendChild(todoContainer);
-            todoContainer.appendChild(todoTitle);  
+            todoContainer.appendChild(todoHeader);
+            todoHeader.appendChild(todoCheckmark);
+            todoHeader.appendChild(todoTitle);
         })
 
      
